@@ -15,7 +15,6 @@ const CalendarElement = ({ day, month }) => {
     const isToday = isSameDay(day, today);
     const textColor = isCurrentMonth ? "textPrimary" : "textSecondary";
 
-
     return (
         <div className={styles.element}>
         <Typography className={styles.date} align="center" variant="caption" component="div" color={textColor}>

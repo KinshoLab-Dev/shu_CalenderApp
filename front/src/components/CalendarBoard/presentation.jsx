@@ -6,7 +6,7 @@ import CalendarElement from "../CalendarElement/index";
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
-const CalendarBoard = ({calendar}) => {
+const CalendarBoard = ({calendar, month}) => {
     return (
         <div className={styles.container}>
             <GridList className={styles.grid} cols={7} spacing={0} cellHeight="auto">
@@ -20,7 +20,7 @@ const CalendarBoard = ({calendar}) => {
 
             {calendar.map(c => (
                 <li key = {c.toString()}>
-                    <CalendarElement day={c}></CalendarElement>
+                    <CalendarElement day={c} month={month}></CalendarElement>
                 </li>
             ))}
             </GridList>

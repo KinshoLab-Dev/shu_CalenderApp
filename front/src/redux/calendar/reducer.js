@@ -1,13 +1,11 @@
 //reducer では action が実行されたときにどのような状態になるのかを定義する場所です
 import dayjs from "dayjs";
-import {CALENDAR_SET_MONTH} from "./constants"
+import { CALENDAR_SET_MONTH } from "./constants";
+import { formatMonth } from "../../service/calendar";
 
 const day = dayjs();
 
-const init = {
-    year: day.year(),
-    month: day.month()+1
-};
+const init = formatMonth(day);
 
 export const calendarReducer = (state = init, {type, payload}) => {
     switch(type){

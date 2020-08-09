@@ -4,8 +4,10 @@ import * as styles from "./style.css";
 import { Typography } from "@material-ui/core";
 import dayjs from "dayjs";
 import { isSameMonth, isFirstDay, isSameDay, getMonth } from "../../service/calendar";
+import Schedule from "../Schedule/index";
+import { style } from "@material-ui/system";
 
-const CalendarElement = ({ day, month }) => {
+const CalendarElement = ({ day, month, schedules, ...props }) => {
     const format = isFirstDay(day) ? "M月D日" : "D";
 
     //本日場合色分け
@@ -22,6 +24,11 @@ const CalendarElement = ({ day, month }) => {
                 {day.format(format)}
             </span>
         </Typography>
+        <div className={styles.schedules}>
+            {schedules.map(e =>(
+                <Schedule key={e.id} schedule={e} {...props} />
+            ))}
+        </div>
         </div>
     );
 };
